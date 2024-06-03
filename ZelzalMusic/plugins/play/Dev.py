@@ -18,7 +18,7 @@ from pyrogram.types import (
 from strings.filters import command
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from random import  choice, randint
-from MatrixMusic import app
+from ZelzalMusic import app
 from pyrogram import Client, filters
 from config import OWNER_ID
 
