@@ -18,7 +18,6 @@ from pyrogram.enums import ChatMemberStatus
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
 from ZelzalMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 from ZelzalMusic import app
-from telegraph import upload_file
 from asyncio import gather
 from pyrogram.errors import FloodWait
 
