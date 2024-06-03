@@ -11,7 +11,7 @@ from pyrogram.types import (
     InputMediaPhoto,
     Message,
 )
-from MatrixMusic import app
+from ZelzalMusic import app
 
 
 REPLY_MESSAGE = "<b>- اهلا بك عزيزي اليك قائمة اوامر التسلية</b>"
