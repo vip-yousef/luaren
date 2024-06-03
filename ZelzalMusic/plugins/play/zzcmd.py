@@ -1,35 +1,40 @@
-#▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒✯ ʑᴇʟᴢᴀʟ_ᴍᴜsɪᴄ ✯▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
-#▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒✯  T.me/ZThon   ✯▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
-#▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒✯ T.me/Zelzal_Music ✯▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
-
 import asyncio
-from pyrogram import Client, filters
-from strings.filters import command
-from pyrogram.types import InlineKeyboardButton, CallbackQuery, InlineKeyboardMarkup, Message
-from typing import Union
-from pyrogram.types import InlineKeyboardButton
+import os
+from pyrogram.types import CallbackQuery
+from ZelzalMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 from ZelzalMusic import app
+import requests
+import pyrogram
+from pyrogram import Client, emoji 
+from config import *
+from pyrogram import filters
+from strings.filters import command
 from ZelzalMusic.misc import HAPP, SUDOERS, XCB
 from config import OWNER_ID
-                                       
-                                       
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
+from pyrogram.errors import MessageNotModified
+    
 @app.on_callback_query(filters.regex("zzzback"))
 async def zzzback(_, query: CallbackQuery):
    await query.edit_message_text(
-       f"""<b>» مرحبـاً بك عـزيـزي 𝄞</b>\n<b>» استخـدم الازرار بالاسفـل\n» لـ تصفـح اوامـر الميـوزك 🍓</b>""",
+       f"""<b>» مرحبـاً بك عـزيـزي </b>\n\n<b>» استخـدم الازرار بالاسفـل 𝄞\n» لـ تصفـح اوامـر الميـوزك 🥁""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "• اوامــر التشغيــل •", callback_data="zzzll"),
-                ],[
+                        "• اوامر التشغيل •", callback_data="zzzll"),
                     InlineKeyboardButton(
-                        "• اوامـر القنـاة •", callback_data="zzzch"),
-                    InlineKeyboardButton(
-                        "• اوامـر الادمـن •", callback_data="zzzad"),
+                        "• اوامر القنوات •", callback_data="zzzch"),
                 ],[
+                    
+                    InlineKeyboardButton(
+                        "• اوامــر الادمــن •", callback_data="zzzad"),
+
                     InlineKeyboardButton(
                         "• اوامــر المطــور •", callback_data="zzzdv"),
+                ],[ 
+                    InlineKeyboardButton(
+                        "• سورس بلاك •", url="https://t.me/KKC8C"),
                 ],
             ]
         ),
@@ -40,7 +45,7 @@ async def zzzback(_, query: CallbackQuery):
 @app.on_callback_query(filters.regex("zzzdv") & SUDOERS)
 async def mpdtsf(_, query: CallbackQuery):
    await query.edit_message_text(
-       f"""<b>» مرحبـاً بك عـزيـزي المطـور </b>\n\n<b>» استخـدم الازرار بالاسفـل 𝄞\n» لـ تصفـح اوامـر الميـوزك 🍓</b>""",
+       f"""<b>» مرحبـاً بك عـزيـزي المطـور </b>\n\n<b>» استخـدم الازرار بالاسفـل 𝄞\n» لـ تصفـح اوامـر الميـوزك 🥁</b>""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -73,7 +78,7 @@ async def zzzll(_, query: CallbackQuery):
 تشغيل + (اسم الاغنية / رابط الاغنية)
 <b>- لــ تـشـغـيل اغـنـيـة فـي الـمكـالـمـة الـصـوتـيـة</b>
 
-فيديو + (اسم المقـطـع / رابط المقـطـع)
+/vplay + (اسم المقـطـع / رابط المقـطـع)
 <b>- لــ تـشـغـيل فيـديـو فـي الـمكـالـمـة المـرئيـة</b>
 
 بحث + الاسـم
@@ -154,7 +159,7 @@ async def zzzch(_, query: CallbackQuery):
 فيديو + اسم المقـطـع
 <b>- لــ تـشـغـيل فيـديـو فـي الـمكـالـمـة المـرئيـة</b>
 
-ايقاف / انهاء / اسكت / كافي
+ايقاف / انهاء / اسكت
 <b>- لـ إيقـاف تـشغـيـل الـمـوسـيـقـى فـي المكـالمـة</b>
 
 وقف / توقف
@@ -166,9 +171,9 @@ async def zzzch(_, query: CallbackQuery):
 تخطي
 <b>- لـ تخطـي الاغنيـة وتشغيـل الاغنيـة التاليـه</b>
 ٴ⋆┄─┄─┄─┄─┄─┄─┄─┄⋆
-تقديم + عـدد الثـوانـي
+/seek + عـدد الثـوانـي
 <b>- لـ تقديـم الاغنيـه لـ الامـام</b>
-رجوع + عـدد الثـوانـي
+/seekback + عـدد الثـوانـي
 <b>- لـ إرجـاع الاغنيـه لـ الخـلف</b>
 """,
        reply_markup=InlineKeyboardMarkup(
@@ -226,7 +231,7 @@ async def zzzsu(_, query: CallbackQuery):
 رفع مطور/تنزيل مطور
 <b>- لـ رفـع/تنزيـل شخـص مطـور فـي ميـوزك البـوت</b>
 
-المطورين
+المطورينن
 <b>- لـ عـرض قائمـة مطـورين البـوت</b>
 
 """,
@@ -302,4 +307,6 @@ async def zzzas(_, query: CallbackQuery):
                ],
           ]
         ),
-    )
+   )
+    
+    
