@@ -5,27 +5,27 @@ from ZelzalMusic import app
 
 @app.on_message(filters.incoming & filters.private, group=-1)
 async def must_join_channel(bot: Client, msg: Message):
-    if not "https://t.me/seepixel":  # Not compulsory
+    if not "https://t.me/cecrr":  # Not compulsory
         return
     try:
         try:
-            await bot.get_chat_member("seepixel", msg.from_user.id)
+            await bot.get_chat_member("cecrr", msg.from_user.id)
         except UserNotParticipant:
             if "https://t.me/seepixel".isalpha():
-                link = "https://t.me/seepixel"
+                link = "https://t.me/cecrr"
             else:
-                chat_info = await bot.get_chat("seepixel")
+                chat_info = await bot.get_chat("cecrr")
                 link = chat_info.invite_link
             try:
                 await msg.reply(
-                    f"⌯︙عذࢪاَ حَبيبي ↫ {msg.from_user.mention} \n⌯︙عـليك الاشـتࢪاك في قنـاة البوت .\n⌯︙قناة : t.me/seepixel 🍓.\nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ",
+                    f"⌯︙عذࢪاَ حَبيبي ↫ {msg.from_user.mention} \n⌯︙عـليك الاشـتࢪاك في قنـاة البوت .\n⌯︙قناة : t.me/cecrr 🍓.\nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ",
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton("Not ᥉ꪮ᥉", url=link)]
+                        [InlineKeyboardButton("تـعـب", url=link)]
                     ])
                 )
                 await msg.stop_propagation()
             except ChatWriteForbidden:
                 pass
     except ChatAdminRequired:
-        print(f"I'm not admin in the MUST_JOIN chat @seepixel !")
+        print(f"I'm not admin in the MUST_JOIN chat @cecrr !")
