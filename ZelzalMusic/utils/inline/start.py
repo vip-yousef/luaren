@@ -1,7 +1,7 @@
 from pyrogram.types import InlineKeyboardButton
 
 import config
-from MatrixMusic import app
+from ZelzalMusic import app
 
 
 def start_panel(_):
