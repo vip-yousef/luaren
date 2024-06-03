@@ -1,7 +1,7 @@
 import os
 from pyrogram.types import Message
 from pyrogram import Client, filters
-from MatrixMusic import app
+from ZelzalMusic import app
 
 @app.on_message(filters.command("قول", ""))
 async def speak(_, message: Message):
