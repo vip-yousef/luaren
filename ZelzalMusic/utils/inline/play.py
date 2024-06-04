@@ -1,11 +1,17 @@
+#▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒✯ ʑᴇʟᴢᴀʟ_ᴍᴜsɪᴄ ✯▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+#▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒✯  T.me/ZThon   ✯▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+#▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒✯ T.me/Zelzal_Music ✯▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+
 import math
 
 from pyrogram.types import InlineKeyboardButton
 
+from ZelzalMusic import app
 from ZelzalMusic.utils.formatters import time_to_seconds
-
+from config import CH_US
 
 def track_markup(_, videoid, user_id, channel, fplay):
+    chat_tit = "Not ᥉ꪮ᥉"
     buttons = [
         [
             InlineKeyboardButton(
@@ -17,7 +23,7 @@ def track_markup(_, videoid, user_id, channel, fplay):
                 callback_data=f"MusicStream {videoid}|{user_id}|v|{channel}|{fplay}",
             ),
         ],
-        [InlineKeyboardButton(text=_["MATRIX_BUTTON"], url=f"https://t.me/KKC8C")],
+        [InlineKeyboardButton(text=chat_tit, url=f"https://t.me/{CH_US}")],
         [
             InlineKeyboardButton(
                 text=_["CLOSE_BUTTON"],
@@ -53,6 +59,7 @@ def stream_markup_timer(_, chat_id, played, dur):
         bar = "────────⦷─"
     else:
         bar = "─────────⦷"
+    chat_tit = "Not ᥉ꪮ᥉"
     buttons = [
         [
             InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
@@ -67,13 +74,14 @@ def stream_markup_timer(_, chat_id, played, dur):
                 callback_data="GetTimer",
             )
         ],
-        [InlineKeyboardButton(text=_["MATRIX_BUTTON"], url=f"https://t.me/KKC8C")],
+        [InlineKeyboardButton(text=chat_tit, url=f"https://t.me/{CH_US}")],
         [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
     ]
     return buttons
 
 
 def stream_markup(_, chat_id):
+    chat_tit = "Not ᥉ꪮ᥉"
     buttons = [
         [
             InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
@@ -82,25 +90,26 @@ def stream_markup(_, chat_id):
             InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
-        [InlineKeyboardButton(text=_["MATRIX_BUTTON"], url=f"https://t.me/KKC8C")],
+        [InlineKeyboardButton(text=chat_tit, url=f"https://t.me/{CH_US}")],
         [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
     ]
     return buttons
 
 
 def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
+    chat_tit = "Not ᥉ꪮ᥉"
     buttons = [
         [
             InlineKeyboardButton(
                 text=_["P_B_1"],
-                callback_data=f"Playlists {videoid}|{user_id}|{ptype}|a|{channel}|{fplay}",
+                callback_data=f"ZelzalyPlaylists {videoid}|{user_id}|{ptype}|a|{channel}|{fplay}",
             ),
             InlineKeyboardButton(
                 text=_["P_B_2"],
-                callback_data=f"Playlists {videoid}|{user_id}|{ptype}|v|{channel}|{fplay}",
+                callback_data=f"ZelzalyPlaylists {videoid}|{user_id}|{ptype}|v|{channel}|{fplay}",
             ),
         ],
-        [InlineKeyboardButton(text=_["MATRIX_BUTTON"], url=f"https://t.me/KKC8C")],
+        [InlineKeyboardButton(text=chat_tit, url=f"https://t.me/{CH_US}")],
         [
             InlineKeyboardButton(
                 text=_["CLOSE_BUTTON"],
@@ -112,6 +121,7 @@ def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
 
 
 def livestream_markup(_, videoid, user_id, mode, channel, fplay):
+    chat_tit = "Not ᥉ꪮ᥉"
     buttons = [
         [
             InlineKeyboardButton(
@@ -119,7 +129,7 @@ def livestream_markup(_, videoid, user_id, mode, channel, fplay):
                 callback_data=f"LiveStream {videoid}|{user_id}|{mode}|{channel}|{fplay}",
             ),
         ],
-        [InlineKeyboardButton(text=_["MATRIX_BUTTON"], url=f"https://t.me/KKC8C")],
+        [InlineKeyboardButton(text=chat_tit, url=f"https://t.me/{CH_US}")],
         [
             InlineKeyboardButton(
                 text=_["CLOSE_BUTTON"],
