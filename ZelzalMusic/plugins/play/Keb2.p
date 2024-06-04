@@ -15,11 +15,11 @@ from random import  choice, randint
 
 
 lnk= "" +config.SUPPORT_CHANNEL
-@app.on_message(command(["غنيلي","‹ غنيلي ›"]) & filters.group & filters.reply)
+@app.on_message(command(["غنيلي","‹ غنيلي ›"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(2,90)
     url = f"https://t.me/BE_19/{rl}"
-    await message.reply_voice(url,caption="≭︰تم اختيار اغنية لك .",
+    await client.send_voice(message.chat.id,url,caption="≭︰تم اختيار اغنية لك .",
     reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -28,10 +28,11 @@ async def aTari(client: Client, message: Message):
                 ],
             ]
         )
-                             )
+    )
 
 
-@app.on_message(command(["‹ صور ›","صور"]) & filters.group)
+
+@app.on_message(command(["‹ صور ›","صور"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(2,50)
     url = f"https://t.me/vnnkli/{rl}"
@@ -47,7 +48,7 @@ async def aTari(client: Client, message: Message):
     )
 
 
-@app.on_message(command(["‹ انمي ›", "انمي"]) & filters.group)
+@app.on_message(command(["‹ انمي ›", "انمي"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(2,90)
     url = f"https://t.me/LoreBots7/{rl}"
@@ -63,7 +64,7 @@ async def aTari(client: Client, message: Message):
     )
 
 
-@app.on_message(command(["‹ متحركة ›", "متحركة"]) & filters.group)
+@app.on_message(command(["‹ متحركة ›", "متحركة"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(2,90)
     url = f"https://t.me/GifWaTaN/{rl}"
@@ -78,7 +79,7 @@ async def aTari(client: Client, message: Message):
         )
     )
 
-@app.on_message(command(["‹ اقتباسات ›", "اقتباسات"]) & filters.group)
+@app.on_message(command(["‹ اقتباسات ›", "اقتباسات"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(2,90)
     url = f"https://t.me/LoreBots9/{rl}"
@@ -93,7 +94,7 @@ async def aTari(client: Client, message: Message):
         )
     )
 
-@app.on_message(command(["هيدرات", "‹ هيدرات ›"]) & filters.group)
+@app.on_message(command(["هيدرات", "‹ هيدرات ›"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(2,90)
     url = f"https://t.me/flflfldld/{rl}"
@@ -108,7 +109,7 @@ async def aTari(client: Client, message: Message):
         )
     )
 
-@app.on_message(command(["‹ افتارات شباب ›"]) & filters.group)
+@app.on_message(command(["‹ افتارات شباب ›"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(2,90)
     url = f"https://t.me/QrQsQ/{rl}"
@@ -123,7 +124,7 @@ async def aTari(client: Client, message: Message):
         )
     )
 
-@app.on_message(command(["‹ افتار بنات ›"]) & filters.group)
+@app.on_message(command(["‹ افتار بنات ›"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(2,90)
     url = f"https://t.me/vvyuol/{rl}"
@@ -139,7 +140,7 @@ async def aTari(client: Client, message: Message):
     )
 
 
-@app.on_message(command(["‹ قران ›", "قران"]) & filters.group)
+@app.on_message(command(["‹ قران ›", "قران"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(1,90)
     url = f"https://t.me/lllIIlIllIlIIlI/{rl}"
@@ -154,7 +155,7 @@ async def aTari(client: Client, message: Message):
         )
     )
 
-@app.on_message(command(["‹ جداريات ›"]) & filters.group)
+@app.on_message(command(["‹ جداريات ›"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(2,61)
     url = f"https://t.me/flflflgktl/{rl}"
@@ -169,7 +170,7 @@ async def aTari(client: Client, message: Message):
         )
                            )
 
-@app.on_message(command(["‹ لوكيت ›"]) & filters.group)
+@app.on_message(command(["‹ لوكيت ›"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(4,281)
     url = f"https://t.me/kabsjjwbs/{rl}"
@@ -184,7 +185,7 @@ async def aTari(client: Client, message: Message):
         )
                            )
 
-@app.on_message(command(["‹ افلام ›"]) & filters.group)
+@app.on_message(command(["‹ افلام ›"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(2,326)
     url = f"https://t.me/Ntsjcdz/{rl}"
@@ -200,7 +201,7 @@ async def aTari(client: Client, message: Message):
                            )
 
 
-@app.on_message(command(["‹ شعر ›"]) & filters.group)
+@app.on_message(command(["‹ شعر ›"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(2,30)
     url = f"https://t.me/lflfltnt/{rl}"
@@ -215,7 +216,7 @@ async def aTari(client: Client, message: Message):
         )
                            )
 
-@app.on_message(command(["‹ افتارات سينمائية ›"]) & filters.group)
+@app.on_message(command(["‹ افتارات سينمائية ›"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(3,218)
     url = f"https://t.me/IIYIZ/{rl}"
@@ -230,7 +231,7 @@ async def aTari(client: Client, message: Message):
         )
                            )
 
-@app.on_message(command(["‹ افتارات فنانين ›"]) & filters.group)
+@app.on_message(command(["‹ افتارات فنانين ›"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(3,214)
     url = f"https://t.me/FPPPH/{rl}"
@@ -245,7 +246,7 @@ async def aTari(client: Client, message: Message):
         )
                            )
 
-@app.on_message(command(["‹ قيفات شباب ›"]) & filters.group)
+@app.on_message(command(["‹ قيفات شباب ›"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(2,21)
     url = f"https://t.me/dldldldlgt/{rl}"
@@ -260,7 +261,7 @@ async def aTari(client: Client, message: Message):
         )
                            )
 
-@app.on_message(command(["‹ قيفات بنات ›"]) & filters.group)
+@app.on_message(command(["‹ قيفات بنات ›"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(2,22)
     url = f"https://t.me/lflflrofo/{rl}"
@@ -275,7 +276,7 @@ async def aTari(client: Client, message: Message):
         )
                                )
 
-@app.on_message(command(["‹ قيفات قطط ›"]) & filters.group)
+@app.on_message(command(["‹ قيفات قطط ›"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(2,101)
     url = f"https://t.me/gsgjituops/{rl}"
@@ -290,7 +291,7 @@ async def aTari(client: Client, message: Message):
         )
                                )
 
-@app.on_message(command(["‹ قيفات اطفال ›"]) & filters.group)
+@app.on_message(command(["‹ قيفات اطفال ›"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(2,24)
     url = f"https://t.me/fmgngoclr/{rl}"
@@ -305,7 +306,7 @@ async def aTari(client: Client, message: Message):
         )
                                )
 
-@app.on_message(command(["‹ قيفات رومانسية ›"]) & filters.group)
+@app.on_message(command(["‹ قيفات رومانسية ›"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(2,21)
     url = f"https://t.me/romansiaaa/{rl}"
@@ -320,7 +321,7 @@ async def aTari(client: Client, message: Message):
         )
                                )
 
-@app.on_message(command(["‹ قيفات كيبوب ›"]) & filters.group)
+@app.on_message(command(["‹ قيفات كيبوب ›"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(2,25)
     url = f"https://t.me/kibobg/{rl}"
@@ -335,7 +336,7 @@ async def aTari(client: Client, message: Message):
     )    
                                )
 
-@app.on_message(command(["‹ قيفات كوكسال ›"]) & filters.group)
+@app.on_message(command(["‹ قيفات كوكسال ›"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(2,59)
     url = f"https://t.me/koksalt/{rl}"
@@ -350,7 +351,7 @@ async def aTari(client: Client, message: Message):
     )
                                )
 
-@app.on_message(command(["‹ هامستر ›","هامستر"]) & filters.group)
+@app.on_message(command(["‹ هامستر ›","هامستر"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(2,3)
     url = f"https://t.me/asoein/{rl}"
@@ -365,7 +366,7 @@ async def aTari(client: Client, message: Message):
     )
                                )
 
-@app.on_message(command(["‹ هامستر ›","هامستر"]) & filters.group)
+@app.on_message(command(["‹ هامستر ›","هامستر"]) & filters.private)
 async def aTari(client: Client, message: Message):
     rl = random.randint(4,5)
     url = f"https://t.me/asoein/{rl}"
@@ -378,4 +379,4 @@ async def aTari(client: Client, message: Message):
                 ],
             ]
         )
-                           )
+)
