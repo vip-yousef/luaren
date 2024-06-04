@@ -11,7 +11,7 @@ from ZelzalMusic.utils.formatters import time_to_seconds
 from config import CH_US
 
 def track_markup(_, videoid, user_id, channel, fplay):
-    chat_tit = "𝗕𝗟𝗔𝗖𝗞 |⌯𖤒˼ ˹🖤˼"
+    chat_tit = "تـعـب"
     buttons = [
         [
             InlineKeyboardButton(
@@ -59,7 +59,7 @@ def stream_markup_timer(_, chat_id, played, dur):
         bar = "────────⦷─"
     else:
         bar = "─────────⦷"
-    chat_tit = "𝗕𝗟𝗔𝗖𝗞 |⌯𖤒˼ ˹🖤˼"
+    chat_tit = "تـعـب"
     buttons = [
         [
             InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
@@ -81,7 +81,7 @@ def stream_markup_timer(_, chat_id, played, dur):
 
 
 def stream_markup(_, chat_id):
-    chat_tit = "𝗕𝗟𝗔𝗖𝗞 |⌯𖤒˼ ˹🖤˼"
+    chat_tit = "تـعـب"
     buttons = [
         [
             InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
@@ -97,7 +97,7 @@ def stream_markup(_, chat_id):
 
 
 def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
-    chat_tit = "𝗕𝗟𝗔𝗖𝗞 |⌯𖤒˼ ˹🖤˼"
+    chat_tit = "تـعـب"
     buttons = [
         [
             InlineKeyboardButton(
@@ -121,7 +121,7 @@ def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
 
 
 def livestream_markup(_, videoid, user_id, mode, channel, fplay):
-    chat_tit = "𝗕𝗟𝗔𝗖𝗞 |⌯𖤒˼ ˹🖤˼"
+    chat_tit = "تـعـب"
     buttons = [
         [
             InlineKeyboardButton(
