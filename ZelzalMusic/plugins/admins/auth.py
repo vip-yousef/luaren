@@ -1,9 +1,13 @@
+#▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒✯ ʑᴇʟᴢᴀʟ_ᴍᴜsɪᴄ ✯▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+#▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒✯  https://t.me/KKC8C   ✯▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+#▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒✯ https://t.me/KKC8C ✯▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+
 from ZelzalMusic.plugins.play.filters import command
 from pyrogram import filters
 from pyrogram.types import Message
 
 from ZelzalMusic import app
-from ZelzalMusic.utils import int_to_alpha
+from ZelzalMusic.utils import extract_user, int_to_alpha
 from ZelzalMusic.utils.database import (
     delete_authuser,
     get_authuser,
@@ -19,8 +23,8 @@ from config import BANNED_USERS, adminlist
 @AdminActual
 async def auth(client, message: Message, _):
     if not message.reply_to_message:
-        if len(message.command) != 2:
-            return await message.reply_text(_["general_1"])
+        if "رفع ادمن" not in message.text.split():
+            return
     user = await extract_user(message)
     token = await int_to_alpha(user.id)
     _check = await get_authuser_names(message.chat.id)
@@ -48,8 +52,8 @@ async def auth(client, message: Message, _):
 @AdminActual
 async def unauthusers(client, message: Message, _):
     if not message.reply_to_message:
-        if len(message.command) != 2:
-            return await message.reply_text(_["general_1"])
+        if "تنزيل ادمن" not in message.text.split():
+            return
     user = await extract_user(message)
     token = await int_to_alpha(user.id)
     deleted = await delete_authuser(message.chat.id, token)
@@ -64,10 +68,12 @@ async def unauthusers(client, message: Message, _):
 
 
 @app.on_message(
-    command(["قائمة الادمن", "الادمنيه"]) & filters.group & ~BANNED_USERS
+    command(["الادمنية", "الادمنيه"]) & filters.group & ~BANNED_USERS
 )
 @language
 async def authusers(client, message: Message, _):
+    if "الادمنيه" not in message.text.split() or "الادمنية" not in message.text.split():
+        return
     _wtf = await get_authuser_names(message.chat.id)
     if not _wtf:
         return await message.reply_text(_["setting_4"])
